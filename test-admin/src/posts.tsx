@@ -5,6 +5,8 @@ import { List,
     EditButton, 
     SimpleForm, 
     ReferenceInput,
+    Show,
+    SimpleShowLayout,
 TextInput,
 Edit,
 Create
@@ -12,13 +14,24 @@ Create
 
 export const PostList = () => (
   <List>
-   <Datagrid rowClick={false}>
+   <Datagrid rowClick="show">
      <TextField source="id" />
       <ReferenceField source="userId" reference="users" link="show"/>
       <TextField source="title" />
       <EditButton />
     </Datagrid>
   </List>
+);
+
+export const PostShow = () => (
+    <Show>
+        <SimpleShowLayout>
+            <ReferenceField source="userId" reference="users" />
+            <TextField source="id" />
+            <TextField source="title" />
+            <TextField source="body" />
+        </SimpleShowLayout>
+    </Show>
 );
 
 export const PostEdit = () => (

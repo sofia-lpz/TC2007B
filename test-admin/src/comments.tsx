@@ -8,7 +8,8 @@ import { Datagrid,
     Edit,
     ReferenceInput,
     SimpleForm,
-    TextInput
+    TextInput,
+    Create
 } from 'react-admin';
 
 export const CommentList = () => (
@@ -18,7 +19,6 @@ export const CommentList = () => (
             <TextField source="id" />
             <TextField source="name" />
             <EmailField source="email" />
-            <TextField source="body" />
         </Datagrid>
     </List>
 );
@@ -39,10 +39,22 @@ export const CommentEdit = () => (
     <Edit>
         <SimpleForm>
             <ReferenceInput source="postId" reference="posts" />
-            <TextInput source="id" />
+            <TextInput source="id" InputProps={{ disabled:true }}/>
             <TextInput source="name" />
             <TextInput source="email" />
-            <TextInput source="body" />
+            <TextInput source="body" multiline rows={5}/>
         </SimpleForm>
     </Edit>
 );
+
+export const CommentCreate = () => (
+    <Create>
+      <SimpleForm>
+        <ReferenceInput source="postId" reference="posts" />
+        <TextInput source="name" />
+        <TextInput source="email" />
+        <TextInput source="body" multiline rows={5}/>
+      </SimpleForm>
+    </Create>
+  );
+
