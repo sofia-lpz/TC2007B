@@ -17,8 +17,8 @@ BooleanInput
  export const TodoList = () => (
      <List>
          <Datagrid>
-             <ReferenceField source="userId" reference="users" />
-             <TextField source="id" />
+         <TextField source="id" />
+             <ReferenceField source="userId" reference="users" link="show"/>
              <TextField source="title" />
              <BooleanField source="completed" />
          </Datagrid>
@@ -28,8 +28,8 @@ BooleanInput
 export const TodoShow = () => (
     <Show>
         <SimpleShowLayout>
-            <ReferenceField source="userId" reference="users" />
-            <TextField source="id" />
+        <TextField source="id" />
+            <ReferenceField source="userId" reference="users" link="show"/>
             <TextField source="title" />
             <BooleanField source="completed" />
         </SimpleShowLayout>
@@ -40,9 +40,19 @@ export const TodoEdit = () => (
     <Edit>
         <SimpleForm>
             <ReferenceInput source="userId" reference="users" />
-            <TextInput source="id" />
+            <TextInput source="id" InputProps={{ disabled:true }}/>
             <TextInput source="title" />
             <BooleanInput source="completed" />
         </SimpleForm>
     </Edit>
 );
+
+export const TodoCreate = () => (
+    <Create>
+      <SimpleForm>
+        <ReferenceInput source="userId" reference="users" />
+        <TextInput source="title" />
+        <BooleanInput source="completed"/>
+      </SimpleForm>
+    </Create>
+  );
