@@ -7,7 +7,8 @@ SimpleShowLayout,
 Edit,
 ReferenceInput,
 SimpleForm,
-TextInput
+TextInput,
+Create
  } from 'react-admin';
 
 export const AlbumList = () => (
@@ -34,8 +35,17 @@ export const AlbumEdit = () => (
     <Edit>
         <SimpleForm>
             <ReferenceInput source="userId" reference="users" />
-            <TextInput source="id" />
+            <TextInput source="id" InputProps={{ disabled:true }}/>
             <TextInput source="title" />
         </SimpleForm>
     </Edit>
 );
+
+export const AlbumCreate = () => (
+    <Create>
+      <SimpleForm>
+        <ReferenceInput source="userId" reference="users" />
+        <TextInput source="title" />
+      </SimpleForm>
+    </Create>
+  );

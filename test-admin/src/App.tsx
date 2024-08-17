@@ -13,7 +13,7 @@ import { UserList } from "./users";
 import { PostEdit, PostList, PostCreate } from "./posts";
 import { TodoList, TodoEdit, TodoShow, TodoCreate } from "./todos";
 import { CommentList, CommentEdit, CommentShow } from "./comments";
-import { AlbumList, AlbumEdit, AlbumShow } from "./albums";
+import { AlbumList, AlbumEdit, AlbumShow, AlbumCreate } from "./albums";
 import { PhotoList, PhotoEdit, PhotoShow, PhotoCreate} from "./photos";
 
 export const App = () => (
@@ -24,7 +24,7 @@ export const App = () => (
     <Resource name="todos" list={TodoList} edit={TodoEdit} show={TodoShow} create={TodoCreate}/>
 
     <Resource name="comments" list={CommentList} edit={CommentEdit} show={CommentShow}/>
-    <Resource name="albums" list={AlbumList} edit={AlbumEdit} show={AlbumShow}/>
+    <Resource name="albums" list={AlbumList} edit={AlbumEdit} show={AlbumShow} create={AlbumCreate}/>
 
     <Resource name="photos" list={PhotoList} edit={PhotoEdit} show={PhotoShow} create={PhotoCreate}/>
   </Admin>
